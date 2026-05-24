@@ -17,6 +17,18 @@ facultad2 = Facultad(
     decano="Dra. Veronica Alexandra Armijos Buitrón"
 )
 
+facultad3 = Facultad(
+    nombre="Facultad de Ciencias de la Salud",
+    ubicacion="Bloque C",
+    decano="Esp. Med. Patricia Bonilla Sierra"
+)
+
+facultad4 = Facultad(
+    nombre="Facultad de Ciencias Jurídicas y Políticas",
+    ubicacion="Bloque A",
+    decano="Dra. Diana Gabriela Moreira Aguirre"
+)
+
 carrera1 = Carrera(
     nombre="Tecnologías de la información",
     codigo_interno="IS001",
@@ -35,6 +47,23 @@ carrera3 = Carrera(
     facultad=facultad2
 )
 
+carrera4 = Carrera(
+    nombre="Medicina",
+    codigo_interno="CS001",
+    facultad=facultad3
+)
+
+carrera5 = Carrera(
+    nombre="Enfermería",
+    codigo_interno="CS002",
+    facultad=facultad3
+)
+
+carrera6 = Carrera(
+    nombre="Derecho",
+    codigo_interno="CJ001",
+    facultad=facultad4
+)
 profesor1 = Profesor(
     nombres="María",
     apellidos="Gómez",
@@ -57,6 +86,30 @@ profesor3 = Profesor(
     correo_institucional="laura.mendoza@universidad.edu",
     especialidad="Gestión Empresarial",
     carrera=carrera3
+)
+
+profesor4 = Profesor(
+    nombres="María",
+    apellidos="Carrillo",
+    correo_institucional="maria.carrillo@universidad.edu",
+    especialidad="Química",
+    carrera=carrera4
+)
+
+profesor5 = Profesor(
+    nombres="Pablo",
+    apellidos="Bravo",
+    correo_institucional="pablo.bravo@universidad.edu",
+    especialidad="Biología Básica",
+    carrera=carrera5
+)
+
+profesor6 = Profesor(
+    nombres="Marianela",
+    apellidos="Armijos",
+    correo_institucional="marianela.armijos@universidad.edu",
+    especialidad="Introducción al Derecho ",
+    carrera=carrera6
 )
 
 recurso1 = RecursoAcademico(
@@ -83,11 +136,34 @@ recurso3 = RecursoAcademico(
     profesor=profesor3
 )
 
+recurso4 = RecursoAcademico(
+    titulo="Quimica Orgánica para Estudiantes de Medicina",
+    fecha_publicacion=date(2026, 5, 20),
+    tipo_recurso="Libro base",
+    url="https://ejemplo.com/Quimica",
+    profesor=profesor4
+)
+
+recurso5 = RecursoAcademico(
+    titulo="Video sobre Biología Básica",
+    fecha_publicacion=date(2020, 3, 10),
+    tipo_recurso="Video",
+    url="https://ejemplo.com/Biología-básica-video",
+    profesor=profesor5
+)
+
+recurso6 = RecursoAcademico(
+    titulo="Introducción al Derecho",
+    fecha_publicacion=date(2026, 5, 15),
+    tipo_recurso="Libro base",
+    url="https://ejemplo.com/manual-admin",
+    profesor=profesor6
+)
 session.add_all([
-    facultad1, facultad2,
-    carrera1, carrera2, carrera3,
-    profesor1, profesor2, profesor3,
-    recurso1, recurso2, recurso3
+    facultad1, facultad2, facultad3, facultad4,
+    carrera1, carrera2, carrera3, carrera4, carrera5, carrera6,
+    profesor1, profesor2, profesor3, profesor4, profesor5, profesor6,
+    recurso1, recurso2, recurso3, recurso4, recurso5, recurso6
 ])
 
 # Guardar los cambios en la base de datos
