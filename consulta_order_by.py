@@ -4,8 +4,7 @@ from crear_base_entidades import Facultad, Profesor, RecursoAcademico
 # Crear sesión
 session = SessionLocal()
 
-
-# Consulta con ordenamiento ascendente por nombre de facultad, apellido de profesor y fecha de publicación del recurso.
+# CONSULTA ORDER BY - Ordenar facultades por nombre de forma ascendente
 print("\n===== FACULTADES ORDENADAS POR NOMBRE (ASCENDENTE) =====")
 
 facultades = session.query(Facultad).order_by(
@@ -15,8 +14,7 @@ facultades = session.query(Facultad).order_by(
 for facultad in facultades:
     print(facultad)
 
-
-# Consulta con ordenamiento ascendente por apellido del profesor.
+# Ordenar profesores por apellido de forma ascendente
 print("\n===== PROFESORES ORDENADOS POR APELLIDO (ASCENDENTE) =====")
 
 profesores = session.query(Profesor).order_by(
@@ -26,8 +24,7 @@ profesores = session.query(Profesor).order_by(
 for profesor in profesores:
     print(profesor)
 
-
-# Consulta con ordenamiento descendente por fecha de publicación del recurso.
+# Ordenar recursos académicos por fecha de publicación de forma descendente
 print("\n===== RECURSOS ORDENADOS POR FECHA DE PUBLICACIÓN (DESCENDENTE) =====")
 
 recursos = session.query(RecursoAcademico).order_by(
@@ -35,15 +32,21 @@ recursos = session.query(RecursoAcademico).order_by(
 ).all()
 
 for recurso in recursos:
-    print(recurso)
+    print(
+        f"Título: {recurso.titulo} | "
+        f"Fecha: {recurso.fecha_publicacion} | "
+        f"Tipo: {recurso.tipo_recurso}"
+    )
 
-# Consulta con ordenamiento ascendente por apellido del profesor, pero solo para aquellos profesores que sean especialistas en "Programación".
-print("\n===== PROFESORES ESPECIALISTAS EN 'Programación' ORDENADOS POR APELLIDO (ASCENDENTE) =====")
-session.query(Profesor).filter(
-    Profesor.especialidad == "Programación"
-).order_by(
-    Profesor.apellidos.asc()
+# Ordenar recursos académicos por título de forma ascendente
+print("\n===== RECURSOS ORDENADOS POR TÍTULO (ASCENDENTE) =====")
+
+recursos_titulo = session.query(RecursoAcademico).order_by(
+    RecursoAcademico.titulo.asc()
 ).all()
+
+for recurso in recursos_titulo:
+    print(recurso)
 
 # Cerrar sesión
 session.close()

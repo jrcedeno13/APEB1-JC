@@ -38,11 +38,11 @@ for recurso in recursos:
     print(recurso)
 
 
-# Filtra únicamente profesores de facultades que contengan "Ingenierías".
-print("\n===== PROFESORES DE FACULTADES CON 'Ingenierías' =====")
+# Filtra únicamente profesores de facultades que contengan "Ciencias".
+print("\n===== PROFESORES DE FACULTADES CON 'Ciencias' =====")
 
 profesores_ingenierias = session.query(Profesor).join(Carrera).join(Facultad).filter(
-    Facultad.nombre.like("%Ingenierías%")
+    Facultad.nombre.like("%Ciencias%")
 ).all()
 
 for profesor in profesores_ingenierias:
