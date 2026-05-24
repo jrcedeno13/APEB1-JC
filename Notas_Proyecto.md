@@ -79,13 +79,14 @@ python poblar_base.py
 ## Consultar todo el contenido de la base de datos
 python consulta_all.py
 
-## Consultas con filtros, +join
+## Consultas con filtros, + join
 python consulta_filter.py
 
-## Consultas con ordenadas
+## Consultas con presentacion ordenada
 python consulta_order_by.py
 
-## Consultas con or (que cumplan una condicion u otra), +order
+## Consultas con or (que cumplan una condición u otra), + order
 python consulta_or.py
 
-## 
+## Consultas con and (que cumplan doble condición), + join + order
+python consulta_and.py
